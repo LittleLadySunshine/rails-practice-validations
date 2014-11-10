@@ -10,6 +10,7 @@ class OrganizationsController < ApplicationController
 
   def create
     @organization = Organization.new(organization_params)
+    if @organization.valid?
     @organization.save
     redirect_to organizations_path, notice: "Organization saved successfully"
   end
